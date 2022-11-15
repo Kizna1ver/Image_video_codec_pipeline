@@ -1,0 +1,14 @@
+# Cmake
+.release/
+.develop/
+build/
+# temp files
+temp/
+# document
+doc/
+
+# Vscode file
+.vscode/
+.history/
+.clang-format
+*.docx

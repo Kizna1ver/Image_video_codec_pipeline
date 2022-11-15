@@ -1,0 +1,23 @@
+name: image_video_codec_pipeline
+version: __from_changelog__
+
+deps:
+  zoro: any
+  dataset2: any
+  dataset2_zoro: any
+
+build_deps:
+  mdbook: any
+extra_deps:
+  apt: libavcodec-dev libavformat-dev libavutil-dev libswresample-dev
+  
+build: |
+  [[ -n $CLEANUP ]] && rm -r build
+  mkdir -p build
+  cd build
+  cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ..
+  make -j$(nproc)
+  # make install
+  # cd ..
+  # mdbook build doc -d ${INSTALL_DIR}/doc
+  # OUTPUT_DIRECTORY=${INSTALL_DIR}/doxygen doxygen doc/Doxyfile 

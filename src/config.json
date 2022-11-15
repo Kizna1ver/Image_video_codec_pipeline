@@ -1,0 +1,20 @@
+[
+    {
+        "gpu": 0, //注意检查每个线程是否对应
+        "compress_pipe_num": 3, //压缩所对应的主线程数量
+        "jpg_width": 1920, // 用于确定压缩过程显存分配大小
+        "jpg_height": 1080, // 用于确定压缩过程显存分配大小
+        "pic_thread": 3, //JpgDec线程数量
+        "cycle_que_len": 10, // 队列越长，显存分配的越多
+        "video_thread": 1, //视频线程数量,总量(video_thread * compress_pipe_num)应该小于等于3，否则GPU资源不够用会报错
+        "read_thread": 1, //读取线程数量
+        "dec_pool_size": 20, //解压线程池大小
+        "out_path": "/home/ljy/Pictures/compress_output", //存放压缩生成的hevc文件夹路径 
+        // 需要压缩的bag图片根路径 with parameter `com`
+        "local_bag": "/home/ljy/Pictures/2022-11-09-09-48-18-858591/",
+        //指定dir为参数时，作为压缩输入的jpg文件夹列表
+        "pic_path": [
+        ],
+        "fps": 144
+    }
+]
